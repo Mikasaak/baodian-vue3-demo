@@ -1,0 +1,9 @@
+
+// 在scoped中使用/deep/或>>>来穿透样式
+// 例如：.el-menu--popup /deep/ .el-menu-item {
+.el-menu--popup {
+  padding: 0!important;
+  margin-top: -6px!important;
+  min-width: 108px!important;
+}
+

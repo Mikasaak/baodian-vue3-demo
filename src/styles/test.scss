@@ -1,0 +1,24 @@
+li {
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      .img-w {
+        background: url('../assets/images/jiaoxiao-tuijian-content-img-bgc#{$i}.png') center center no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+li {
+  &.item-left {
+    float: left;
+    width: 16.6%;
+    line-height: 1.4;
+  }
+  @for $i from 1 through 6 {
+    &.icon#{$i} {
+      background: url('../assets/icons/study-step-icon#{$i}.png') center top no-repeat;
+    }
+
+  }
+}

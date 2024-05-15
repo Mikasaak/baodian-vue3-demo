@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,eAAgB;EACd,OAAO,EAAE,YAAW;EACpB,MAAM,EAAE,YAAW",
+"sources": ["../../../../../../%E6%A1%86%E6%9E%B6/VUE/project/baodian-vue3-demo/src/styles/custom-element-plus.scss"],
+"names": [],
+"file": "custom-element-plus.css"
+}

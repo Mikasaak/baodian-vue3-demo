@@ -1,0 +1,36 @@
+/*
+Error: Invalid GBK character "\xE5"
+        on line 2 of custom-element-plus.scss
+
+1: 
+2: // 在scoped中使用/deep/或>>>来穿透样式
+3: // 例如：.el-menu--popup /deep/ .el-menu-item {
+4: .el-menu--popup {
+5:   padding: 0!important;
+6:   margin-top: -6px!important;
+7:   min-width: 108px!important;
+
+Backtrace:
+custom-element-plus.scss:2
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:1090:in `rescue in block in find_encoding_error'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:1087:in `block in find_encoding_error'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each_with_index'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `find_encoding_error'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/util.rb:814:in `check_sass_encoding'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/engine.rb:444:in `check_encoding!'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/engine.rb:400:in `_to_tree'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Users/mi'ka'sa/.gem/ruby/2.7.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Users/mi'ka'sa/AppData/Local/Microsoft/WindowsApps/sass:23:in `load'
+C:/Users/mi'ka'sa/AppData/Local/Microsoft/WindowsApps/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 2 of custom-element-plus.scss\A \A 1: \A 2: // 在scoped中使用/deep/或>>>来穿透样式\A 3: // 例如：.el-menu--popup /deep/ .el-menu-item {\A 4: .el-menu--popup {\A 5:   padding: 0!important;\A 6:   margin-top: -6px!important;\A 7:   min-width: 108px!important;"; }
