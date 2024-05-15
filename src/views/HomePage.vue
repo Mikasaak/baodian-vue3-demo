@@ -3,6 +3,7 @@
 import LayoutNavigation from "@/components/LayoutNavigation.vue";
 import HomeBanner from "@/components/HomeBanner.vue";
 import HomePart from "@/components/HomePart.vue";
+import SideFloat from "@/components/SideFloat.vue";
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import HomePart from "@/components/HomePart.vue";
   <LayoutNavigation></LayoutNavigation>
   <HomeBanner></HomeBanner>
   <HomePart></HomePart>
+  <SideFloat></SideFloat>
 </div>
 </template>
 

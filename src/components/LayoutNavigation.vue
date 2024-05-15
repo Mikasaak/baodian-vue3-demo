@@ -160,7 +160,7 @@ onMounted(()=>{
             <el-sub-menu v-if="item.children" :index="item.index" :data-index="index+1">
               <template #title>{{ item.title }}</template>
               <el-menu-item  v-for="child in item.children" :key="child.index" :index="child.index" class="sub-item"
-              :style="{
+                             :style="{
                 backgroundColor: '#fff',
                 width: `${menuInfo[index].width}px`,
                 display: 'flex',
@@ -198,6 +198,34 @@ nav {
 
   .search {
     float: right;
+    :deep(.el-button) {
+      font-family: "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 14px !important;
+      width: 52px !important;
+      background-color: rgb(240, 240, 240) !important;
+      border: 1px solid #e9e9e9 !important;
+      border-radius: 0 !important;
+      color: #333 !important;
+    }
+
+    :deep(.el-form-item) {
+      height: 42px !important;
+      margin-bottom: unset!important;
+    }
+
+    :deep(.el-input) {
+      height: 42px!important;
+      border: 1px solid #e9e9e9;
+      width: 200px!important;
+      z-index: 100;
+      :deep(.el-input__wrapper) {
+        border-radius: 0!important;
+      }
+    }
+    :deep(.el-button) {
+      height: 42px;
+      border-radius: 0;
+    }
   }
 
   .navigation-content {
@@ -248,7 +276,7 @@ nav {
         }
       }
       :deep(.el-icon.el-sub-menu__icon-arrow) {
-         display: none!important;
+        display: none!important;
       }
       :deep(.el-sub-menu) {
         height: 100% !important;

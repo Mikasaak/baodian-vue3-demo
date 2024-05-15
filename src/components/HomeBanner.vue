@@ -1,5 +1,9 @@
 <script setup>
 import {ref} from 'vue';
+
+
+//轮播图导入
+
 // import Swiper core and required modules
 import {A11y, Autoplay, Pagination, Scrollbar} from 'swiper/modules';
 
@@ -11,17 +15,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
-
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const onSlideChange = () => {
-  console.log('slide change');
-};
+// import Swiper core and required modules
 const modules = [Autoplay, Pagination, Scrollbar, A11y];
 
-
+//菜单数据
 const menuInfo = ref({
   title: '学车流程',
   list: [
@@ -54,6 +51,8 @@ function getMenuListClass(index) {
   return `icon${index}`;
 }
 
+
+//返回菜单图标的URL 通过index 动态引入静态资源
 function  getMenuIconURL(index) {
   const url = new URL(`../assets/icons/icon${index}.png`, import.meta.url);
   console.log(url);

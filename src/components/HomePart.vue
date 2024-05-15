@@ -1,6 +1,9 @@
 <script setup>
 import {ref} from 'vue';
 
+const defaultLink = ref("javascript:;");
+
+//理论考试数据
 const theoryTestMenuInfo = ref({
   title: '青岛市2024小车理论考试',
   list: [
@@ -55,6 +58,9 @@ const theoryTestMenuInfo = ref({
 
 })
 
+
+//驾校推荐数据
+const drivingSchoolRecommendTitle = ref('青岛市驾校推荐')
 const drivingSchoolRecommendList = ref([
   {
     name: "君达驾校",
@@ -117,6 +123,72 @@ const drivingSchoolRecommendList = ref([
 
 ])
 
+
+// 学车流程数据
+const studyStepInfo = ref({
+  title: '学车流程',
+  desc: '驾考宝典整合学车全流程，驾考宝典为用户提供全方位学车服务',
+  list: [
+    {
+      title: '找驾校',
+      desc: '口碑好的驾校',
+    },
+    {
+      title: '科目一',
+      desc: '驾驶员理论考试',
+    },
+    {
+      title: '科目二',
+      desc: '场地驾驶技能考试科目',
+    },
+    {
+      title: '科目三',
+      desc: '机动车驾驶人道路考试',
+    },
+    {
+      title: '科目四',
+      desc: '安全文明驾驶常识考试',
+    },
+    {
+      title: '拿本',
+      desc: '开心拿本，安全驾驶',
+    },
+  ]
+})
+
+
+// 宝典荣誉数据
+const honorInfo = ref({
+  title: '宝典荣誉',
+  desc: '强大的驾考功能，优秀的用户体验，我们的愿景是学车无忧，轻松拿本',
+})
+
+// APP广告数据
+const appAdInfo = ref([
+  {
+    title: '教练宝典APP',
+  },
+  {
+    title: '驾考宝典APP',
+  },
+  {
+    title: '买车宝典APP',
+  },
+])
+
+// 驾考宝典APP下载文本数据
+const appDownloadInfo = ref([
+  {
+    position: 'left',
+    title: '驾考宝典APP下载',
+    desc: '考驾照 用宝典',
+  },
+  {
+    position: 'right',
+    title: '驾考宝典微信小程序',
+    desc: '无需下载，驾考做题更方便！',
+  },
+])
 </script>
 
 <template>
@@ -128,27 +200,27 @@ const drivingSchoolRecommendList = ref([
     <div class="content clearfix">
       <ul class="item left" v-for="(item,index) in theoryTestMenuInfo.list" :key="index" :class="item.position">
         <li class="item-right">
-          <a class="link" href="javascript:;">{{ item.title }}<span class="small"></span></a>
+          <a class="link" :href="defaultLink">{{ item.title }}<span class="small"></span></a>
         </li>
         <li class="item-left" v-for="(item,index) in item.list" :key="index" :class="`icon${index+1}`">
-          <a href="javascript:;">{{ item.title }}</a>
+          <a :href="defaultLink">{{ item.title }}</a>
           <p>{{ item.desc }}</p>
         </li>
         <li class="item-right btn-bar">
-          <a class="btn-link" href="javascript:;">{{ item.btn }}</a>
+          <a class="btn-link" :href="defaultLink">{{ item.btn }}</a>
         </li>
       </ul>
     </div>
   </div>
   <div class="banner-mid-ad com-part-home">
-    <a href="javascript:;">
+    <a :href="defaultLink">
       <img src="../assets/images/banner-mid-ad-img.png">
     </a>
   </div>
   <div class="com-home-jiaxiao-tuijian com-part-home">
     <div class="part-home-title">
       <hr class="hr">
-      <div class="title-text">青岛市驾校推荐</div>
+      <div class="title-text">{{ drivingSchoolRecommendTitle }}</div>
       <div class="title-text2"></div>
     </div>
     <div class="jiaxiao-tuijian-container">
@@ -167,7 +239,7 @@ const drivingSchoolRecommendList = ref([
             </div>
             <div class="col2 left"><p class="price red">￥{{ item.price }}</p></div>
             <div class="col3 right">
-              <button ref="baoming" class="btn-baoming" data-id="13140">{{ item.btnText }}</button>
+              <button class="btn-baoming" data-id="13140">{{ item.btnText }}</button>
             </div>
           </div>
           <div class="item-content">
@@ -178,40 +250,55 @@ const drivingSchoolRecommendList = ref([
           <div class="tip"></div>
         </li>
       </ul>
-      <div class="btn-bar"><a href="javascript:;">查看更多</a>
+      <div class="btn-bar"><a :href="defaultLink">查看更多</a>
       </div>
     </div>
   </div>
-  <div class="com-home-study-step com-part-home" data-sp="0.27">
+  <div class="com-home-study-step com-part-home">
     <div class="part-home-title">
       <hr class="hr">
-      <div class="title-text">学车流程</div>
-      <div class="title-text2">驾考宝典整合学车全流程，驾考宝典为用户提供全方位学车服务</div>
+      <div class="title-text">{{ studyStepInfo.title }}</div>
+      <div class="title-text2">{{ studyStepInfo.desc }}</div>
     </div>
     <div class="content">
       <ul class="item clearfix">
-        <li class="item-left icon1"><a target="_blank" href="https://www.jiakaobaodian.com/qingdao/school/"
-                                       one-link-mark="yes"><span class="title">找驾校</span>
-          <p>口碑好的驾校</p></a></li>
-        <li class="item-left icon2"><a target="_blank" href="https://www.jiakaobaodian.com/mnks/kemu1/car.html"
-                                       one-link-mark="yes"><span class="title">科目一</span>
-          <p>驾驶员理论考试</p></a></li>
-        <li class="item-left icon3"><a target="_blank" href="https://www.jiakaobaodian.com/mnks/kemu2/car.html"
-                                       one-link-mark="yes"><span class="title">科目二</span>
-          <p>场地驾驶技能考试科目</p></a></li>
-        <li class="item-left icon4"><a target="_blank" href="https://www.jiakaobaodian.com/mnks/kemu3/car.html"
-                                       one-link-mark="yes"><span class="title">科目三</span>
-          <p>机动车驾驶人道路考试</p></a></li>
-        <li class="item-left icon5"><a target="_blank" href="https://www.jiakaobaodian.com/mnks/kemu4/car.html"
-                                       one-link-mark="yes"><span class="title">科目四</span>
-          <p>安全文明驾驶常识考试</p></a></li>
-        <li class="item-left icon6"><a href="javascript:;" one-link-mark="yes"><span class="title">拿本</span>
-          <p>开心拿本，安全驾驶</p></a></li>
+        <li class="item-left" v-for="(item,index) in studyStepInfo.list" :key="index" :class="`icon${index+1}`">
+          <a :href="defaultLink">
+            <span class="title">{{ item.title }}</span>
+            <p>{{ item.desc }}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="com-home-my-honor com-part-home">
+    <div class="part-home-title">
+      <hr class="hr">
+      <div class="title-text">{{ honorInfo.title }}</div>
+      <div class="title-text2">{{honorInfo.desc}}</div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/honor-bg.png" alt="">
+    </div>
+  </div>
+  <div class="com-home-app-ad">
+    <div class="content">
+      <div class="item" v-for="(item,index) in appAdInfo" :key="index" :class="`ad${index+1}`"><span>{{item.title}}</span>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="com-home-app-down com-part-home">
+    <div class="content">
+      <ul class="item clearfix">
+        <li class="item-left" v-for="(item) in appDownloadInfo" :class="{right:item.position==='right'}">
+          <span>{{item.title}}</span>
+          <p>{{item.desc}}</p>
+        </li>
       </ul>
     </div>
   </div>
 
-  <div class="test" style="height: 10px;width: 1200px;"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -513,6 +600,11 @@ button {
         text-align: center;
         font-size: 16px;
         cursor: pointer;
+
+        &:hover {
+          border: 1px solid #37B5F8;
+          color: #37B5F8;
+        }
       }
     }
   }
@@ -538,16 +630,19 @@ button {
           float: left;
           width: 16.6%;
           line-height: 1.4;
-          a{
+
+          a {
             display: block;
             padding: 150px 40px 0;
-            color:inherit;
+            color: inherit;
             font-size: inherit;
+
             .title {
               display: block;
               font-size: 24px;
               font-family: "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Helvetica, Arial, sans-serif;
             }
+
             p {
               color: #999;
               margin: 10px -20px;
@@ -558,12 +653,146 @@ button {
         @for $i from 1 through 6 {
           &.icon#{$i} {
             background: url('../assets/icons/study-step-icon#{$i}.png') center top no-repeat;
+
             &:hover {
               background: url('../assets/icons/study-step-active-icon#{$i}.png') center top no-repeat;
               color: #37B5F8;
             }
           }
 
+        }
+      }
+    }
+  }
+}
+
+.com-home-my-honor {
+  .content {
+    text-align: center;
+
+    img {
+      background: 0 0;
+    }
+  }
+
+
+}
+
+.com-home-app-ad {
+  background-color: #f5f5f5;
+
+  .content {
+    position: relative;
+    width: 1200px;
+    height: 560px;
+    margin: 70px auto 0;
+    overflow: hidden;
+
+    .item {
+      position: absolute;
+      bottom: -40px;
+      text-align: center;
+
+      &:hover {
+        animation: ad-move 5s ease-out;
+        -webkit-animation: ad-move .5s ease-out;
+        bottom: 0;
+
+        div {
+          display: block;
+          animation: none;
+          -webkit-animation: none;
+        }
+      }
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    @keyframes ad-move {
+      0% {
+        bottom: -40px;
+      }
+      100% {
+        bottom: 0;
+      }
+    }
+
+
+    .ad1 {
+      left: 30px;
+      width: 300px;
+      height: 500px;
+      background: url("../assets/images/my-honor-ad1.png") center bottom no-repeat;
+
+      div {
+        display: none;
+        width: 100%;
+        height: 100%;
+        margin-top: 37px;
+        background: url("../assets/images/my-honor-ad1-div.png") center no-repeat;
+      }
+    }
+
+    .ad2 {
+      left: 400px;
+      width: 430px;
+      height: 540px;
+      background: url("../assets/images/my-honor-ad2.png") center bottom no-repeat;
+
+      div {
+        display: none;
+        width: 100%;
+        height: 100%;
+        margin-top: 52px;
+        background: url("../assets/images/my-honor-ad2-div.png") center no-repeat;
+        background-color: rgba(255, 255, 255, .5);
+        background-size: 150px 150px;
+      }
+    }
+
+    .ad3 {
+      left: 905px;
+      width: 265px;
+      height: 428px;
+      background: url("../assets/images/my-honor-ad3.png") center bottom no-repeat;
+
+      div {
+        display: none;
+        width: 100%;
+        height: 100%;
+        margin-top: 37px;
+        background: url("../assets/images/my-honor-ad3-div.png") center no-repeat;
+      }
+    }
+  }
+}
+
+.com-home-app-down {
+  .content {
+    .item {
+      .item-left {
+        float: left;
+        width: 600px;
+        line-height: 1.7;
+        margin: 20px 0;
+        padding: 40px 80px;
+        background: url("../assets/images/app-down-QR-code1.png") right 80px center no-repeat;
+        background-size: 140px;
+        border-right: 1px solid #e9e9e9;
+        &.right {
+          float: right;
+          background: url("../assets/images/app-down-WeiXin1.png") right 80px center no-repeat;
+          background-size: 130px;
+          border: none;
+        }
+        span {
+          font-size: 20px;
+          font-family: "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        p {
+          color: #999;
         }
       }
     }
