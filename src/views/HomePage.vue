@@ -12,6 +12,7 @@ import SideFloat from "@/components/SideFloat.vue";
   <HomeBanner></HomeBanner>
   <HomePart></HomePart>
   <SideFloat></SideFloat>
+  <div class="patch" style="height: 150px"></div>
 </div>
 </template>
 

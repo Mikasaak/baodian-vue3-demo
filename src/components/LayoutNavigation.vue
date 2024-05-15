@@ -3,18 +3,17 @@ import "../styles/custom-element-plus.scss"
 import {reactive,onMounted} from 'vue'
 import {ref} from 'vue'
 
+//搜索框的搜索内容
 const formInline = reactive({
   search: '',
 })
-const getFatherElementWidth = (el) => {
-  let width = el.offsetWidth
-  let style = window.getComputedStyle(el)
-  width += parseInt(style.marginLeft) + parseInt(style.marginRight)
-  return width
-}
+
+
 const onSubmit = () => {
   console.log('submit!')
 }
+
+//菜单数据
 const menuInfo = reactive([
   {
     title: '首页',

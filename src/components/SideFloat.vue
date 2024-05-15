@@ -1,9 +1,32 @@
 <script setup>
+import {ref} from 'vue';
 
 function toTheTop() {
   document.documentElement.scrollTop = 0;
 }
 
+const FeedbackInfo = ref({
+  title: '意见反馈',
+  list: [
+    {
+      title: '用户反馈',
+      desc: '400-056-1617（电话）',
+    },
+    {
+      title: '教练反馈',
+      desc: 'jiaolian_service@mucang.cn(邮箱)'
+    },
+    {
+      title: '驾校反馈',
+      desc: 'jiaxiao_service@mucang.cn(邮箱)'
+    },
+    {
+      type: 'link',
+      title: '学员反馈',
+      desc: '点击提交学员反馈'
+    },
+  ]
+});
 </script>
 
 <template>
@@ -15,19 +38,16 @@ function toTheTop() {
       <li class="weibo">
         <div class="box"></div>
       </li>
-      <li class="yjfk"><span>意见反馈</span>
+      <li class="yjfk"><span>{{ FeedbackInfo.title }}</span>
         <div class="yjfk-menu box">
           <ul>
-            <li><span class="title">用户反馈</span>
-              <div class="content">400-056-1617（电话）</div>
+            <li v-for="(item) in FeedbackInfo.list">
+              <span class="title" >{{item.title}}</span>
+
+              <a class="content" v-if="item?.type==='link'">{{item.desc}}</a>
+              <div class="content" v-else>{{item.desc}}</div>
+
             </li>
-            <li><span class="title">教练反馈</span>
-              <div class="content">jiaolian_service@mucang.cn(邮箱)</div>
-            </li>
-            <li><span class="title">驾校反馈</span>
-              <div class="content">jiaxiao_service@mucang.cn(邮箱)</div>
-            </li>
-            <li><span class="title">学员反馈</span><a class="content">点击提交学员反馈</a></li>
           </ul>
           <div class="jt"></div>
         </div>
@@ -50,7 +70,7 @@ function toTheTop() {
   min-height: 258px;
   background: url("../assets/images/side-float-bg.png") center top no-repeat;
 
-  &>ul {
+  & > ul {
     margin-top: 158px;
     border: 1px solid #e6e6e6;
     border-top: none;
@@ -59,7 +79,7 @@ function toTheTop() {
     font-family: "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
 
-    &>li {
+    & > li {
       height: 33px;
       line-height: 33px;
       cursor: pointer;
@@ -94,6 +114,7 @@ function toTheTop() {
         background: url("../assets/icons/yjfk-box.png") left 15px center no-repeat #fff;
         background-size: 20px;
         border-bottom: 1px solid #e6e6e6;
+
         .yjfk-menu {
           display: none;
           position: absolute;
@@ -102,35 +123,42 @@ function toTheTop() {
           width: 170px;
           cursor: default;
           text-indent: 0;
+
           ul {
             margin-right: 10px;
             padding: 5px 15px;
             border: 1px solid #eee;
             background-color: #fff;
+
             li {
               text-align: left;
               padding: 8px 0;
-              &+li {
+
+              & + li {
                 border-top: 1px solid #e9e9e9;
               }
+
               .title {
                 display: block;
                 line-height: 1.4;
                 font-size: 15px;
                 color: #000;
               }
+
               .content {
                 font-size: 12px;
                 color: #999;
                 line-height: 1.4;
                 word-wrap: break-word;
               }
+
               a.content {
                 display: block;
                 color: #00f;
               }
             }
           }
+
           .jt {
             position: absolute;
             height: 0;
